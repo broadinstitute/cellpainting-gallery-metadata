@@ -1,0 +1,46 @@
+﻿File Path,S3 Path for image file
+File Name,Name of image file
+Source,Data source
+Batch,Data batch
+Plate,Plate name
+Well,Well name
+Site,Site number
+Plate_Size,Number of wells in multiwell plate
+CP_Version,Version of the Cell Painting Assay
+DOI_to_Cite,DOI to cite when using data
+Year_Imaged,Year of image acquisition
+Cell_Line_Name,"Name of the cell line, if named"
+Cell_Line_Type,Cell type
+Cell_Line_Modification,"Line modifications (clone selection, Cas9 overexpression, etc.)"
+Label_Mechanism,Mechanism of labeling reagent
+Label_Molecule,Molecule targeted by the label
+Label_Reagent,Reagent used to label sample in image
+Label_Structure,Expected structure that is labeled in image
+Treatment_Primary_Treatment,"Perturbation applied to cells, common name"
+Treatment_Broad_Sample,"Perturbation applied to cells, Broad Sample ID"
+Treatment_Concentration,Concentration if chemical perturbation
+Treatment_InChIKey,"Perturbation applied to cells, InChiKey representation"
+Treatment_Mechanism,Annotation about mechanism of treatment
+Treatment_PubChem_CID,"Perturbation applied to cells, PubChem Cid"
+Treatment_SMILES,"Perturbation applied to cells, SMILES representation"
+Treatment_Solvent,Solvent if chemical perturbation
+Treatment_Secondary_Treatment,"Secondary treatment applied to cells, if present"
+Treatment_Category,"Treatment is compound, ORF, or CRISPR"
+Treatment_Control_Class,Treatment is an experimental variable or a control
+Microscope_Name,Microscope manufacturer and type
+Microscope_Binning,Binning of the microscope
+Microscope_Modality,Microscope modality
+Microscope_Objective_Magnification,Magnification of the microscope objective
+Microscope_Objective_NA,Numerical aperture of the microscope objective
+Microscope_Pixel_Size,Size of a pixel in microns
+Microscope_Excitation_Peak,Excitation peak of the microscope channel imaged
+Microscope_Excitation_Width,Excitation width of the microscope channel imaged
+Microscope_Emission_Peak,Emission peak of the microscope channel imaged
+Microscope_Emission_Width,Emisison width of the microscope channel imaged
+Image_Bit_Depth,Bit depth of the image
+Image_Position_Z,Relative Z-plane of the image
+Image_Size_X,"Image size in pixels, X dimension"
+Image_Size_Y,"Image size in pixels, Y dimension"
+Timepoint_Primary_Treatment,Time in hours since primary treatment
+Timepoint_Secondary_Treatment,Time in hours since secondary treatment
+Timepoint_Acquisition,"For data with time dimension, time in hours since start of acquisition"

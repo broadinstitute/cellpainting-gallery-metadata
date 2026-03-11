@@ -1,0 +1,64 @@
+{
+    "Label": {
+        "Mito": {
+            "Label_Reagent": "Mitotracker",
+            "Label_Structure": "Mitochondria",
+            "Label_Molecule": "Mitochondria",
+            "Label_Mechanism": "Dye"
+        },
+        "AGP": {
+            "Label_Reagent": "Wheat Germ Agglutinin (WGA), Phalloidin",
+            "Label_Structure": "Golgi, Plasma Membrane, f-Actin",
+            "Label_Molecule": "f-Actin, N-acetyl-D-glucosamine",
+            "Label_Mechanism": "Dye"
+        },
+        "RNA": {
+            "Label_Reagent": "SYTO",
+            "Label_Structure": "Nucleolus, Cytoplasmic RNA",
+            "Label_Molecule": "RNA",
+            "Label_Mechanism": "Dye"
+        },
+        "ER": {
+            "Label_Reagent": "ConcanavalinA (ConA)",
+            "Label_Structure": "Endoplasmic Reticulum",
+            "Label_Molecule": "Glycoproteins",
+            "Label_Mechanism": "Dye"
+        },
+        "DNA": {
+            "Label_Reagent": "Hoechst",
+            "Label_Structure": "Nucleus",
+            "Label_Molecule": "DNA",
+            "Label_Mechanism": "Dye"
+        },
+        "WGA": {
+            "Label_Reagent": "Wheat Germ Agglutinin (WGA)",
+            "Label_Structure": "Golgi, Plasma Membrane",
+            "Label_Molecule": "N-acetyl-D-glucosamine",
+            "Label_Mechanism": "Dye"
+        },
+        "Phalloidin": {
+            "Label_Reagent": "Phalloidin",
+            "Label_Structure": "f-Actin",
+            "Label_Molecule": "f-Actin",
+            "Label_Mechanism": "Dye"
+        },
+        "Brightfield": {
+            "Label_Reagent": "None",
+            "Label_Structure": "None",
+            "Label_Molecule": "None",
+            "Label_Mechanism": "None"
+        },
+        "AO_Green": {
+            "Label_Reagent": "Acridine Orange",
+            "Label_Structure": "Nucleus, Nucleolus, Cytoplasmic RNA",
+            "Label_Molecule": "DNA, RNA",
+            "Label_Mechanism": "Dye"
+        },
+        "AO_Red": {
+            "Label_Reagent": "Acridine Orange",
+            "Label_Structure": "Lysosomes, Endosomes",
+            "Label_Molecule": "Acidic Compartments",
+            "Label_Mechanism": "Dye"
+        }
+    }
+}
