@@ -1,0 +1,60 @@
+
+{
+    "DNA": [
+        "Hoechst 33342", 
+        "405", 
+        "435-480", 
+        "Nucleus",
+        "Blue"
+    ],
+    "ER": [
+        "Concanavalin A/Alexa Fluor 488 conjugate",
+        "488",
+        "500-550",
+        "Endoplasmic Reticulum",
+        "Cyan"
+    ],
+    "RNA": [
+        "SYTO 14 nucleic acid stain",
+        "488",
+        "570-630",
+        "Nucleoli, Cytoplasmic RNA",
+        "Purple"
+    ],
+    "AGP": [
+        "Phalloidin/Alexa Fluor 568 conjugate & WGA/Alexa Fluor 555 conjugate",
+        "561",
+        "570-630",
+        "F-actin Cytoskeleton, Golgi, Plasma Membrane",
+        "Orange"
+    ],
+    "Mito": [
+        "MitoTracker Deep Red", 
+        "640", 
+        "650-760", 
+        "Mitochondria Mito",
+        "Red"
+    ],
+    "Brightfield": [
+        "None", 
+        "None",
+        "None", 
+        "None", 
+        "Grey"
+    ],
+    "LowZBF": [
+        "None", 
+        "None",
+        "None", 
+        "None", 
+        "Grey"
+    ],
+    "HighZBF": [
+        "None", 
+        "None",
+        "None", 
+        "None", 
+        "Grey"
+    ]
+    
+}

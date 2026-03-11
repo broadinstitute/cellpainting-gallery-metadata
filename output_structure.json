@@ -1,0 +1,53 @@
+{
+    "Setup" : ["File Path" , "File Name"],
+    "Columns" : {
+        "Batch": ["^Batch$"],
+        "Plate": [".*Plate$", "Assay_Plate_Barcode"],
+        "Well" : [".*Well$", "well_position"],
+        "Site" : [".*Site"],
+        "Cell_Line_Name" : ["^cell.*line$", "^cells/well$"],
+        "Image_Size_X" : [".*ImageSizeX"],
+        "Image_Size_Y" : [".*ImageSizeY"],
+        "Image_Position_Z" : [".*PlaneID", ".*ZPlane"],
+        "Microscope_Binning" : [".*BinningX", ".*BinningY"], 
+        "Microscope_Objective_Magnification" : [".*ObjectiveMagnification"],
+        "Microscope_Objective_NA" : [".*ObjectiveNA"],
+        "Treatment_Primary_Treatment": ["gene", "treatment","compound","pert_iname"],
+        "Treatment_Broad_Sample": ["^broad_sample$"],
+        "Treatment_Concentration": ["concentration"],
+        "Treatment_Mechanism": [".*moa$"],
+        "Treatment_Solvent": ["solvent", "vehicle"],
+        "Treatment_InChIKey": ["InChIKey"],
+        "Treatment_PubChem_CID": ["pubchem_cid"],
+        "Treatment_SMILES": ["smiles"],
+        "Treatment_Control_Class": ["control_type", "pert_type"],
+        "Plate_Map" : ["^Plate.*Map_Name"],
+        "User_Name" : ["URL_Column"]
+    },
+    "Treatment_Concentration":[
+        "mg_per_ml",
+        "mmoles_per_liter"
+    ],
+    "Values":{
+        "Treatment_Control_Class": {
+            "Control" : ["ctl","ctrl", "control"],
+            "Treatment" : ["trt", "treatment"],
+            "NegCon": ["negcon", "nc"],
+            "PosCon": ["poscon", "pc"]
+        },
+        "Treatment_Category":{
+            "ORF": ["overexpression", "orf"],
+            "compound": ["compound"],
+            "CRISPR": ["crispr"]
+        },
+        "Treatment_Solvent":{
+            "DMSO": ["dmso"]
+        },
+        "Label":{
+            "RNA":["syto","SYTO","Syto"],
+            "AGP":["Ph_golgi"],
+            "DNA":["Hoechst"]
+        }
+    }
+
+}

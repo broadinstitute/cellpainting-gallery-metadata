@@ -1,0 +1,334 @@
+{
+    "File Path" : {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": false
+    },
+    "File Name": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": false
+    },
+    "Source" : {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": false
+    },
+    "Batch": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": false
+    },
+    "Plate": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": false
+    },
+    "Well" : {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": false
+    },
+    "Site" : {
+        "Type": "int",
+        "Harmonize" : false,
+        "allow_sparse": false
+    },
+    "Plate_Size" : {
+        "Type": "int",
+        "Harmonize" : true,
+        "allow_sparse": false,
+        "Values" : [
+            6,
+            24,
+            96,
+            384,
+            1536
+        ]
+    },
+    "CP_Version": {
+        "Type": "str",
+        "Harmonize" : true,
+        "allow_sparse": false,
+        "Values" : [
+            "v1",
+            "v2",
+            "v2.5",
+            "v3",
+            "lipocyte painting",
+            "neuro painting",
+            "live cell painting",
+            "other"]
+    },
+    "DOI_to_Cite": {
+        "Type": "str",
+        "allow_sparse": false,
+        "Harmonize" : false 
+    },
+    "Year_Imaged": {
+        "Type": "int",
+        "allow_sparse": true,
+        "Harmonize" : false 
+    },
+    "Cell_Line_Name": {
+        "Type": "str",
+        "Harmonize" : true,
+        "allow_sparse": false,
+        "Values": [
+            "A549",
+            "Huh7",
+            "MCF-7",
+            "HeLa",
+            "A549",
+            "MCF7",
+            "U2OS",
+            "HepaRG",
+            "None"
+        ] 
+    },
+    "Cell_Line_Type": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": false,
+        "Values": [
+            "iPSC",
+            "cervical cancer",
+            "breast cancer",
+            "primary human hepatocyte"
+        ]
+    },
+    "Cell_Line_Modification": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": true,
+        "Values": [
+            "subclone A",
+            "Cas9 polyclonal overexpression",
+            "None"
+        ]
+    },
+    "Label_Mechanism": {
+        "Type": "str",
+        "Harmonize" : true,
+        "allow_sparse": false,
+        "Values" : ["Dye", "Antibody", "None"] 
+    },
+    "Label_Molecule": {
+        "Type": "str",
+        "Harmonize" : true,
+        "allow_sparse": false,
+        "Values": [
+            "β-tubulin",
+            "DNA",
+            "f-Actin",
+            "f-Actin, N-acetyl-D-glucosamine",
+            "Glycoproteins",
+            "Mitochondria",
+            "N-acetyl-D-glucosamine",
+            "None",
+            "RNA",
+            "Unknown"
+        ]
+    },
+    "Label_Reagent": {
+        "Type": "str",
+        "Harmonize" : true,
+        "allow_sparse": false,
+        "Values" : [
+            "DAPI",
+            "Hoechst",
+            "ConcanavalinA (ConA)",
+            "Wheat Germ Agglutinin (WGA), Phalloidin",
+            "Phalloidin",
+            "Wheat Germ Agglutinin (WGA)",
+            "Tocris MitoBrilliant",
+            "Mitotracker",
+            "SYTO",
+            "ChromaLive 488 Red",
+            "ChromaLive 488 Yellow",
+            "mouse anti–β-tubulin IgG and Alexa Fluor 488 donkey anti-mouse IgG",
+            "None"
+        ]
+    },
+    "Label_Structure": {
+        "Type": "str",
+        "Harmonize" : true,
+        "allow_sparse": false,
+        "Values": [
+            "β-tubulin",
+            "Endoplasmic Reticulum",
+            "f-Actin",
+            "Golgi, Plasma Membrane",
+            "Golgi, Plasma Membrane, f-Actin",
+            "Mitochondria",
+            "None",
+            "Nucleus",
+            "Nucleolus, Cytoplasmic RNA",
+            "Unknown"
+        ]
+    },
+    "Treatment_Primary_Treatment": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": false
+    },
+    "Treatment_Broad_Sample": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": true
+    },
+    "Treatment_Concentration": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": true
+    },
+    "Treatment_InChIKey": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": true
+    },
+    "Treatment_Mechanism": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": true
+    },
+    "Treatment_PubChem_CID": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": true
+    },
+    "Treatment_SMILES": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": true
+    },
+    "Treatment_Solvent": {
+        "Type": "str",
+        "Harmonize" : true,
+        "Values" : ["DMSO"],
+        "allow_sparse": true
+    },
+    "Treatment_Secondary_Treatment": {
+        "Type": "str",
+        "Harmonize" : false,
+        "allow_sparse": true
+    },
+    "Treatment_Category": {
+        "Type": "str",
+        "Harmonize" : true,
+        "allow_sparse": true,
+        "Values": [
+            "ORF",
+            "Compound",
+            "CRISPR",
+            "None"
+        ] 
+    },
+    "Treatment_Control_Class": {
+        "Type": "str",
+        "Harmonize" : true,
+        "allow_sparse": true,
+        "Values" : [
+            "Control",
+            "Treatment",
+            "NegCon",
+            "PosCon"
+        ] 
+    },
+    "Microscope_Name": {
+        "Type": "str",
+        "Harmonize" : true,
+        "allow_sparse": false,
+        "Values":[
+            "Revvity Opera Phenix",
+            "Revvity Operetta",
+            "Molecular Devices ImageXpress 5000A",
+            "Molecular Devices ImageXpress XLS",
+            "Molecular Devices ImageXpress Micro",
+            "Agilent BioTek Cytation 5"
+        ]
+    },
+    "Microscope_Binning": {
+        "Type": "int",
+        "Harmonize" : true,
+        "allow_sparse": true,
+        "Values" : [1, 2, 3, 4]
+    },
+    "Microscope_Modality": {
+        "Type": "str",
+        "Harmonize" : true,
+        "allow_sparse": false,
+        "Values" : ["Widefield", "Confocal"] 
+    },
+    "Microscope_Objective_Magnification": {
+        "Type": "int",
+        "allow_sparse": false,
+        "Harmonize" : false 
+    },
+    "Microscope_Objective_NA": {
+        "Type": "float",
+        "allow_sparse": true,
+        "Harmonize" : false 
+    },
+    "Microscope_Pixel_Size": {
+        "Type": "float",
+        "allow_sparse": true,
+        "Harmonize" : false 
+    },
+    "Microscope_Excitation_Peak": {
+        "Type": "int",
+        "allow_sparse": true,
+        "Harmonize" : false 
+    },
+    "Microscope_Excitation_Width": {
+        "Type": "int",
+        "allow_sparse": true,
+        "Harmonize" : false 
+    },
+    "Microscope_Emission_Peak": {
+        "Type": "int",
+        "allow_sparse": true,
+        "Harmonize" : false 
+    },
+    "Microscope_Emission_Width": {
+        "Type": "int",
+        "allow_sparse": true,
+        "Harmonize" : false 
+    },
+    "Image_Bit_Depth": {
+        "Type": "int",
+        "allow_sparse": true,
+        "Harmonize" : true,
+        "Values":[8,12,16]
+    },
+    "Image_Position_Z": {
+        "Type": "int",
+        "allow_sparse": true,
+        "Harmonize" : false 
+    },
+    "Image_Size_X": {
+        "Type": "int",
+        "allow_sparse": true,
+        "Harmonize" : false 
+    },
+    "Image_Size_Y": {
+        "Type": "int",
+        "allow_sparse": true,
+        "Harmonize" : false 
+    },
+    "Timepoint_Primary_Treatment": {
+        "Type": "float",
+        "Harmonize" : false,
+        "allow_sparse": true
+    },
+    "Timepoint_Secondary_Treatment": {
+        "Type": "float",
+        "Harmonize" : false,
+        "allow_sparse": true
+    },
+    "Timepoint_Acquisition": {
+        "Type": "float",
+        "Harmonize" : false,
+        "allow_sparse": true
+    }
+}
