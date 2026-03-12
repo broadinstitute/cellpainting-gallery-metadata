@@ -277,8 +277,10 @@ class Project:
         # Change file path to be a URL
 
         df_long[self.setup_cols[0]] = df_long["File Path"].apply(self.s3_url)
-        # Get Orig suffix (eg, RNA, DNA...)
-        df_long["Label"] = df_long["URL_Column"].str.extract(r"URL_Orig(.+)")
+        
+        df_long["Label"] = df_long["URL_Column"].str.extract(r"URL_(.+)")
+        # channel names often labeled with prefix "Orig", remove "Orig"
+        df_long["Label"] = df_long["Label"].str.replace('Orig','')
 
         df_long[self.setup_cols[1]] = (
             df_long["File Path"].str.split("/").str[-1].str.split(".").str[0]
