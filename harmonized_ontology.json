@@ -94,7 +94,8 @@
             "iPSC",
             "cervical cancer",
             "breast cancer",
-            "primary human hepatocyte"
+            "primary human hepatocyte",
+            "hepatocyte cancer"
         ]
     },
     "Cell_Line_Modification": {
@@ -118,15 +119,17 @@
         "Harmonize" : true,
         "allow_sparse": false,
         "Values": [
+            "Acidic Compartments",
             "β-tubulin",
             "DNA",
+            "DNA, RNA",
             "f-Actin",
             "f-Actin, N-acetyl-D-glucosamine",
             "Glycoproteins",
             "Mitochondria",
             "N-acetyl-D-glucosamine",
-            "None",
             "RNA",
+            "None",
             "Unknown"
         ]
     },
@@ -135,17 +138,19 @@
         "Harmonize" : true,
         "allow_sparse": false,
         "Values" : [
-            "DAPI",
-            "Hoechst",
-            "ConcanavalinA (ConA)",
-            "Wheat Germ Agglutinin (WGA), Phalloidin",
-            "Phalloidin",
-            "Wheat Germ Agglutinin (WGA)",
-            "Tocris MitoBrilliant",
-            "Mitotracker",
-            "SYTO",
+            "Acridine Orange",
             "ChromaLive 488 Red",
             "ChromaLive 488 Yellow",
+            "ConcanavalinA (ConA)",
+            "DAPI",
+            "Hoechst",
+            "Lysotracker",
+            "Mitotracker",
+            "Phalloidin",
+            "Wheat Germ Agglutinin (WGA)",
+            "Wheat Germ Agglutinin (WGA), Phalloidin",
+            "SYTO",
+            "Tocris MitoBrilliant",
             "mouse anti–β-tubulin IgG and Alexa Fluor 488 donkey anti-mouse IgG",
             "None"
         ]
@@ -160,10 +165,13 @@
             "f-Actin",
             "Golgi, Plasma Membrane",
             "Golgi, Plasma Membrane, f-Actin",
+            "Lysosomes",
+            "Lysosomes, Endosomes",
             "Mitochondria",
-            "None",
             "Nucleus",
             "Nucleolus, Cytoplasmic RNA",
+            "Nucleus, Nucleolus, Cytoplasmic RNA",
+            "None",
             "Unknown"
         ]
     },
