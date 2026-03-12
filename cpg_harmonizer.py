@@ -71,6 +71,7 @@ class Project:
 
         # Merge all df to make a master df
         if len(platemap_csvs) > 0:
+            print("Merging in barcode platemap csvs")
             self.master_df = self.merge_two_df(
                 self.master_df,
                 [
@@ -87,6 +88,7 @@ class Project:
             print("Skipping platemap csv")
 
         if len(platemap_txt) > 0:
+            print("Merging in platemaps")
             self.master_df = self.merge_two_df(
                 self.master_df,
                 [
@@ -317,6 +319,7 @@ class Project:
                 # df_l[new_key[0]] = df_l[new_key[0]].astype(str).str.upper()
             except:
                 print("Could not find matching key, check file and dictionary")
+                print(f"Key is {key}, looking in {df_l.columns.to_list()}")
         for i, key in enumerate(key_r):
             try:
                 new_key = self._find_matches(key, df_r.columns)
@@ -324,8 +327,27 @@ class Project:
                 # df_r[new_key[0]] = df_r[new_key[0]].astype(str).str.upper()
             except:
                 print("Could not find matching key, check file and dictionary")
+                print(f"Key is {key}, looking in {df_l.columns.to_list()}")
 
-        merged_df = df_l.merge(df_r, left_on=key_l, right_on=key_r, how="left")
+        merged_df = df_l.merge(df_r, left_on=key_l, right_on=key_r, how="outer")
+        if len(df_l) + len(df_r) == len(merged_df):
+            # try casting values to uppercase for merge to catch common failure mode of mismatched case
+            key_r_TEMP = []
+            key_l_TEMP = []
+            for key in key_r:
+                df_r[f'{key}_TEMP'] = df_r[key].str.upper()
+                key_r_TEMP += [f'{key}_TEMP']
+            for key in key_l:
+                df_l[f'{key}_TEMP'] = df_l[key].str.upper()
+                key_l_TEMP += [f'{key}_TEMP']
+            merged_df = df_l.merge(df_r, left_on=key_l_TEMP, right_on=key_r_TEMP, how="outer")
+            merged_df = merged_df.drop(columns=key_l_TEMP+key_r_TEMP)
+            if len(df_l) + len(df_r) == len(merged_df):
+                print(f"Merge failed. No matching values to merge on.")
+                print(f"Trying to match values in {key_l} and {key_r}")
+                return
+        if len(merged_df) > max(len(df_l), len(df_r)):
+            print(f"Warning: Merge created extra rows. May be mismatch of merge column values.")
 
         # find which keys that we used for merging are different
         keys_to_drop = [right for left, right in zip(key_l, key_r) if left != right]
