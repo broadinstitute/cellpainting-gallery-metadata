@@ -92,10 +92,12 @@
         "allow_sparse": false,
         "Values": [
             "iPSC",
-            "cervical cancer",
+            "bone cancer",
             "breast cancer",
-            "primary human hepatocyte",
-            "hepatocyte cancer"
+            "cervical cancer",
+            "liver cancer",
+            "lung cancer",
+            "primary human hepatocyte"
         ]
     },
     "Cell_Line_Modification": {
@@ -139,19 +141,32 @@
         "allow_sparse": false,
         "Values" : [
             "Acridine Orange",
-            "ChromaLive 488 Red",
-            "ChromaLive 488 Yellow",
+            "ChromaLive",
             "ConcanavalinA (ConA)",
             "DAPI",
             "Hoechst",
             "Lysotracker",
             "Mitotracker",
             "Phalloidin",
-            "Wheat Germ Agglutinin (WGA)",
-            "Wheat Germ Agglutinin (WGA), Phalloidin",
             "SYTO",
             "Tocris MitoBrilliant",
-            "mouse anti–β-tubulin IgG and Alexa Fluor 488 donkey anti-mouse IgG",
+            "Wheat Germ Agglutinin (WGA)",
+            "Wheat Germ Agglutinin (WGA), Phalloidin",
+            "anti–β-tubulin IgG",
+            "None"
+        ]
+    },
+    "Label_Fluorophore": {
+        "Type": "str",
+        "Harmonize" : true,
+        "allow_sparse": true,
+        "Values" : [
+            "14",
+            "33342",
+            "Alexa Fluor 488",
+            "Alexa Fluor 555",
+            "Alexa Fluor 568",
+            "Deep Red",
             "None"
         ]
     },

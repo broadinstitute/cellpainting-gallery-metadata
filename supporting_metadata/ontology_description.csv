@@ -12,6 +12,7 @@ Year_Imaged,Year of image acquisition
 Cell_Line_Name,"Name of the cell line, if named"
 Cell_Line_Type,Cell type
 Cell_Line_Modification,"Line modifications (clone selection, Cas9 overexpression, etc.)"
+Label_Fluorophore,Fluorophore conjugated to reagent or dye variant
 Label_Mechanism,Mechanism of labeling reagent
 Label_Molecule,Molecule targeted by the label
 Label_Reagent,Reagent used to label sample in image
