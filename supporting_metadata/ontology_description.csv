@@ -37,7 +37,7 @@ Microscope_Pixel_Size,Size of a pixel in microns
 Microscope_Excitation_Peak,Excitation peak of the microscope channel imaged
 Microscope_Excitation_Width,Excitation width of the microscope channel imaged
 Microscope_Emission_Peak,Emission peak of the microscope channel imaged
-Microscope_Emission_Width,Emisison width of the microscope channel imaged
+Microscope_Emission_Width,Emission width of the microscope channel imaged
 Image_Bit_Depth,Bit depth of the image
 Image_Position_Z,Relative Z-plane of the image
 Image_Size_X,"Image size in pixels, X dimension"
