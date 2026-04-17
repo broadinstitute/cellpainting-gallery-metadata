@@ -1,5 +1,4 @@
 import pandas as pd
-from matplotlib import pyplot as plt
 import glob as glob
 import boto3
 import io
@@ -7,14 +6,23 @@ from botocore import UNSIGNED
 from botocore.config import Config
 
 
-def make_s3():
-    s3 = boto3.client("s3", config=Config(signature_version=UNSIGNED))
+def make_s3(profile=None):
+    if profile:
+        session = boto3.Session(profile_name=profile)
+        s3 = session.client("s3")
+    else:
+        # Default anonymous client
+        s3 = boto3.client("s3", config=Config(signature_version=UNSIGNED))
     return s3
 
 
-def read_s3_file(file_path, sep):
-    s3 = make_s3()
-    response = s3.get_object(Bucket="cellpainting-gallery", Key=file_path)
+def read_s3_file(file_path, sep, in_staging=False, profile=None):
+    s3 = make_s3(profile=profile)
+    if in_staging:
+        bucket = 'staging-cellpainting-gallery'
+    else:
+        bucket = 'cellpainting-gallery'
+    response = s3.get_object(Bucket=bucket, Key=file_path)
     raw = response["Body"].read()
     if file_path.endswith(".xlsx"):
         df = pd.read_excel(io.BytesIO(raw)).astype(str)
@@ -38,19 +46,16 @@ def read_s3_file(file_path, sep):
     return df
 
 
-def parse_s3_folder(prefix):
-    s3 = make_s3()
+def parse_s3_folder(prefix, in_staging=False, profile=None):
+    s3 = make_s3(profile=profile)
     parsed_files = []
     paginator = s3.get_paginator("list_objects_v2")
-    pages = paginator.paginate(Bucket="cellpainting-gallery", Prefix=prefix)
+    if in_staging:
+        bucket = 'staging-cellpainting-gallery'
+    else:
+        bucket = 'cellpainting-gallery'
+    pages = paginator.paginate(Bucket=bucket, Prefix=prefix)
     for page in pages:
         for obj in page.get("Contents", []):
             parsed_files.append(obj["Key"])
     return parsed_files
-
-
-if __name__ == "__main__":
-
-    read_s3_file(
-        "cpg0002-jump-scope/source_4/workspace/load_data_csv/2020_10_27_Scope1_YokogawaJapan/20201020T134356/load_data.csv"
-    )
