@@ -60,5 +60,43 @@
             "Label_Molecule": "Acidic Compartments",
             "Label_Mechanism": "Dye"
         }
+    },
+    "Cell_Line_Name": {
+        "A549": {
+            "Cell_Line_Type": "lung cancer",
+            "Cell_Line_Organism": "Homo sapiens"
+        },
+        "C2C12": {
+            "Cell_Line_Type": "myoblast",
+            "Cell_Line_Organism": "Mus musculus"
+        },
+        "HeLa": {
+            "Cell_Line_Type": "cervical cancer",
+            "Cell_Line_Organism": "Homo sapiens"
+        },
+        "HepG2": {
+            "Cell_Line_Type": "liver cancer",
+            "Cell_Line_Organism": "Homo sapiens"
+        },
+        "HepaRG": {
+            "Cell_Line_Type": "liver progenitor",
+            "Cell_Line_Organism": "Homo sapiens"
+        },
+        "HEK293T": {
+            "Cell_Line_Type": "embryonic kidney",
+            "Cell_Line_Organism": "Homo sapiens"
+        },
+        "Huh7": {
+            "Cell_Line_Type": "liver cancer",
+            "Cell_Line_Organism": "Homo sapiens"
+        },
+        "N2a": {
+            "Cell_Line_Type": "neuroblastoma",
+            "Cell_Line_Organism": "Mus musculus"
+        },
+        "SH-SY5Y": {
+            "Cell_Line_Type": "neuroblastoma",
+            "Cell_Line_Organism": "Homo sapiens"
+        }
     }
 }

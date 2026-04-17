@@ -76,13 +76,16 @@
         "allow_sparse": false,
         "Values": [
             "A549",
+            "C2C12",
+            "HeLa",
+            "HepG2",
+            "HepaRG",
+            "HEK293T",
             "Huh7",
             "MCF-7",
-            "HeLa",
-            "A549",
-            "MCF7",
+            "N2a",
+            "SH-SY5Y",
             "U2OS",
-            "HepaRG",
             "None"
         ] 
     },
@@ -108,6 +111,16 @@
             "subclone A",
             "Cas9 polyclonal overexpression",
             "None"
+        ]
+    },
+    "Cell_Line_Organism": {
+        "Type": "str",
+        "Harmonize" : true,
+        "allow_sparse": false,
+        "Values": [
+            "Homo sapiens",
+            "Mus musculus",
+            "Rattus norvegicus"
         ]
     },
     "Label_Mechanism": {
@@ -166,7 +179,9 @@
             "Alexa Fluor 488",
             "Alexa Fluor 555",
             "Alexa Fluor 568",
+            "Alexa Fluor 594",
             "Deep Red",
+            "Texas Red",
             "None"
         ]
     },
@@ -244,6 +259,8 @@
             "ORF",
             "Compound",
             "CRISPR",
+            "shRNA",
+            "miRNA",
             "None"
         ] 
     },
@@ -266,8 +283,9 @@
             "Revvity Opera Phenix",
             "Revvity Operetta",
             "Molecular Devices ImageXpress 5000A",
-            "Molecular Devices ImageXpress XLS",
             "Molecular Devices ImageXpress Micro",
+            "Molecular Devices ImageXpress Micro XL",
+            "Molecular Devices ImageXpress Micro XLS",
             "Agilent BioTek Cytation 5"
         ]
     },
