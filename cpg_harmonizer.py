@@ -31,6 +31,7 @@ class Project:
         platemap_txt_batch,
         platemap_txt_name,
         external_tsv,
+        external_merge_regex
     ):
 
         # Find and concatenate all the needed and available files
@@ -70,46 +71,43 @@ class Project:
         self.master_df = self.separate_channels(self.master_df)
 
         # Merge all df to make a master df
-        if len(platemap_csvs) > 0:
-            print("Merging in barcode platemap csvs")
-            self.master_df = self.merge_two_df(
-                self.master_df,
-                [
-                    self.structure_dict["Columns"]["Plate"],
-                    self.structure_dict["Columns"]["Batch"],
-                ],
-                self.barcode_platemap_df,
-                [
-                    self.structure_dict["Columns"]["Plate"],
-                    self.structure_dict["Columns"]["Batch"],
-                ],
-            )
-        else:
-            print("Skipping platemap csv")
-
-        if len(platemap_txt) > 0:
-            print("Merging in platemaps")
-            self.master_df = self.merge_two_df(
-                self.master_df,
-                [
-                    self.structure_dict["Columns"]["Well"],
-                    self.structure_dict["Columns"]["Plate_Map"],
-                ],
-                self.platemap_df,
-                [
-                    self.structure_dict["Columns"]["Well"],
-                    self.structure_dict["Columns"]["Plate_Map"],
-                ],
-            )
-        else:
-            print("Skipping platemap files")
+        assert len(platemap_csvs) > 0, "Missing barcode_platemap.csvs"
+        print("Merging in barcode platemap csvs")
+        self.master_df = self.merge_two_df(
+            self.master_df,
+            [
+                self.structure_dict["Columns"]["Plate"],
+                self.structure_dict["Columns"]["Batch"],
+            ],
+            self.barcode_platemap_df,
+            [
+                self.structure_dict["Columns"]["Plate"],
+                self.structure_dict["Columns"]["Batch"],
+            ],
+        )
+        
+        assert len(platemap_txt) > 0, "Missing platemaps"
+        print("Merging in platemaps")
+        self.master_df = self.merge_two_df(
+            self.master_df,
+            [
+                self.structure_dict["Columns"]["Well"],
+                self.structure_dict["Columns"]["Plate_Map"],
+            ],
+            self.platemap_df,
+            [
+                self.structure_dict["Columns"]["Well"],
+                self.structure_dict["Columns"]["Plate_Map"],
+            ],
+        )
 
         if len(external_tsv) > 0:
+            print("Merging in external metadata")
             self.master_df = self.merge_two_df(
                 self.master_df,
-                [["broad_sample.*"]],
+                [external_merge_regex[0]],
                 self.external_df,
-                [["broad_sample.*"]],
+                [external_merge_regex[1]],
             )
         else:
             print("Skipping external metadata")
@@ -316,7 +314,6 @@ class Project:
             try:
                 new_key = self._find_matches(key, df_l.columns)
                 key_l[i] = new_key[0]
-                # df_l[new_key[0]] = df_l[new_key[0]].astype(str).str.upper()
             except:
                 print("Could not find matching key, check file and dictionary")
                 print(f"Key is {key}, looking in {df_l.columns.to_list()}")
@@ -324,12 +321,11 @@ class Project:
             try:
                 new_key = self._find_matches(key, df_r.columns)
                 key_r[i] = new_key[0]
-                # df_r[new_key[0]] = df_r[new_key[0]].astype(str).str.upper()
             except:
                 print("Could not find matching key, check file and dictionary")
                 print(f"Key is {key}, looking in {df_l.columns.to_list()}")
 
-        merged_df = df_l.merge(df_r, left_on=key_l, right_on=key_r, how="outer")
+        merged_df = df_l.merge(df_r, left_on=key_l, right_on=key_r, how="left")
         if len(df_l) + len(df_r) == len(merged_df):
             # try casting values to uppercase for merge to catch common failure mode of mismatched case
             key_r_TEMP = []
@@ -340,14 +336,30 @@ class Project:
             for key in key_l:
                 df_l[f'{key}_TEMP'] = df_l[key].str.upper()
                 key_l_TEMP += [f'{key}_TEMP']
-            merged_df = df_l.merge(df_r, left_on=key_l_TEMP, right_on=key_r_TEMP, how="outer")
+            merged_df = df_l.merge(df_r, left_on=key_l_TEMP, right_on=key_r_TEMP, how="left")
             merged_df = merged_df.drop(columns=key_l_TEMP+key_r_TEMP)
             if len(df_l) + len(df_r) == len(merged_df):
                 print(f"Merge failed. No matching values to merge on.")
                 print(f"Trying to match values in {key_l} and {key_r}")
                 return
+        """
+        # Use for debugging if outer merge
         if len(merged_df) > max(len(df_l), len(df_r)):
             print(f"Warning: Merge created extra rows. May be mismatch of merge column values.")
+            print(f"First dataframe has {len(df_l)} rows")
+            print(f"Merging using {key_l} columns")
+            print(f"Second dataframe has {len(df_r)} rows")
+            print(f"Merging using {key_r} columns")
+            print(f"Merge dataframe has {len(merged_df)} rows")
+            print(f"{len(df_l)+len(df_r)-len(merged_df)} rows merged")
+            hasnan_after_merge = merged_df[merged_df[key_l].isna().any(axis=1)][key_l + key_r]
+            for i, key in enumerate(key_l):
+                diflist = list(set(df_l[key_l[i]]) ^ set(df_r[key_r[i]]))
+                if len(diflist) > 0:
+                    print(f"Values in only one dataframe being merged: {diflist}")
+            print(f"Possibly improperly created rows are:")
+            print(hasnan_after_merge)
+        """
 
         # find which keys that we used for merging are different
         keys_to_drop = [right for left, right in zip(key_l, key_r) if left != right]
