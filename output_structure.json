@@ -13,7 +13,7 @@
         "Microscope_Objective_Magnification" : [".*ObjectiveMagnification"],
         "Microscope_Objective_NA" : [".*ObjectiveNA"],
         "Treatment_Primary_Treatment": ["gene", "treatment","compound","pert_iname"],
-        "Treatment_Broad_Sample": ["^broad_sample$"],
+        "Treatment_Broad_Sample": ["^broad_sample$", "broad_id"],
         "Treatment_Concentration": ["concentration"],
         "Treatment_Mechanism": [".*moa$"],
         "Treatment_Solvent": ["solvent", "vehicle"],
