@@ -23,8 +23,8 @@ class Project:
 
     def run_conversion(
         self,
-        main_csvs,
-        main_csv_batch,
+        load_data_csvs,
+        load_data_csv_batch,
         platemap_csvs,
         platemap_csv_batch,
         platemap_txt,
@@ -35,12 +35,12 @@ class Project:
     ):
 
         # Find and concatenate all the needed and available files
-        # main_csv_paths, main_csv_batch, platemap_csv_paths, platemap_csv_batch, platemap_txt_paths, platemap_txt_batch, platemap_txt_pert, external_tsv_paths = self.parse_files()
+        # load_data_csv_paths, load_data_csv_batch, platemap_csv_paths, platemap_csv_batch, platemap_txt_paths, platemap_txt_batch, platemap_txt_pert, external_tsv_paths = self.parse_files()
         # Need to start with the setup columns
         self.setup_cols = self.initialize_df()
 
         self.master_df = self.collate_df(
-            main_csvs, sep=",", add_col=["Batch"], add_value=[main_csv_batch]
+            load_data_csvs, sep=",", add_col=["Batch"], add_value=[load_data_csv_batch]
         )
 
         if len(platemap_csvs) > 0:
@@ -51,7 +51,8 @@ class Project:
                 add_value=[platemap_csv_batch],
             )
         else:
-            print("No platemap csv found")
+            print("No platemap csv found. Fatal error.")
+            return
 
         if len(platemap_txt) > 0:
             self.platemap_df = self.collate_df(
@@ -61,12 +62,13 @@ class Project:
                 add_value=[platemap_txt_batch, platemap_txt_name],
             )
         else:
-            print("No platemap files found")
+            print("No platemap files found. Fatal error.")
+            return
 
         if len(external_tsv) > 0:
             self.external_df = self.collate_df(external_tsv, sep="\t")
         else:
-            print("No external metadata found")
+            print("No external metadata found. Not all projects have external metadata.")
 
         self.master_df = self.separate_channels(self.master_df)
 
@@ -85,7 +87,6 @@ class Project:
                 self.structure_dict["Columns"]["Batch"],
             ],
         )
-        
         assert len(platemap_txt) > 0, "Missing platemaps"
         print("Merging in platemaps")
         self.master_df = self.merge_two_df(
@@ -110,7 +111,10 @@ class Project:
                 [external_merge_regex[1]],
             )
         else:
-            print("Skipping external metadata")
+            print("Skipping external metadata. Not all projects have external metadata.")
+
+        # Clean "Metadata" from column names
+        self.master_df.columns = self.master_df.columns.str.replace("Metadata_", "", regex=False)
 
         self.master_df = self.combine_concentrations()
 
@@ -147,8 +151,8 @@ class Project:
         List of paths for the main csvs in load_data_csv and the external metadata (which might not be present)
         """
         # grab all files
-        main_csv_paths = []
-        main_csv_batch = []
+        load_data_csv_paths = []
+        load_data_csv_batch = []
 
         platemap_csv_paths = []
         platemap_csv_batch = []
@@ -165,9 +169,9 @@ class Project:
             for file in files:
                 full_path = os.path.join(dirs, file)
                 if full_path.endswith("load_data.csv"):
-                    main_csv_paths.append(full_path)
+                    load_data_csv_paths.append(full_path)
                     batch = dirs.split("/")[-2]
-                    main_csv_batch.append(batch)
+                    load_data_csv_batch.append(batch)
 
                 elif full_path.endswith("barcode_platemap.csv"):
                     platemap_csv_paths.append(full_path)
@@ -186,8 +190,8 @@ class Project:
                     external_tsv_paths.append(os.path.join(dirs, file))
 
         return (
-            main_csv_paths,
-            main_csv_batch,
+            load_data_csv_paths,
+            load_data_csv_batch,
             platemap_csv_paths,
             platemap_csv_batch,
             platemap_txt_paths,
@@ -212,7 +216,6 @@ class Project:
         """
         to_concat = []
         for i, small_df in enumerate(dfs):
-            # small_df = pd.read_csv(csv, sep = sep)
             if add_col is not None:
                 value = (
                     [value[i] for value in add_value]
@@ -323,10 +326,10 @@ class Project:
                 key_r[i] = new_key[0]
             except:
                 print("Could not find matching key, check file and dictionary")
-                print(f"Key is {key}, looking in {df_l.columns.to_list()}")
+                print(f"Key is {key}, looking in {df_r.columns.to_list()}")
 
-        merged_df = df_l.merge(df_r, left_on=key_l, right_on=key_r, how="left")
-        if len(df_l) + len(df_r) == len(merged_df):
+        merged_df = df_l.merge(df_r, left_on=key_l, right_on=key_r, how="left", indicator=True)
+        if (merged_df["_merge"] == "both").sum() == 0:
             # try casting values to uppercase for merge to catch common failure mode of mismatched case
             key_r_TEMP = []
             key_l_TEMP = []
@@ -336,12 +339,17 @@ class Project:
             for key in key_l:
                 df_l[f'{key}_TEMP'] = df_l[key].str.upper()
                 key_l_TEMP += [f'{key}_TEMP']
-            merged_df = df_l.merge(df_r, left_on=key_l_TEMP, right_on=key_r_TEMP, how="left")
+            merged_df = df_l.merge(df_r, left_on=key_l_TEMP, right_on=key_r_TEMP, how="left", indicator=True)
             merged_df = merged_df.drop(columns=key_l_TEMP+key_r_TEMP)
-            if len(df_l) + len(df_r) == len(merged_df):
+            if (merged_df["_merge"] == "both").sum() == 0:
                 print(f"Merge failed. No matching values to merge on.")
                 print(f"Trying to match values in {key_l} and {key_r}")
+                for key in key_l:
+                    print(f"Unique values in left df for {key}: {df_l[key].unique()}")
+                for key in key_r:
+                    print(f"Unique values in right df for {key}: {df_r[key].unique()}") 
                 return
+        merged_df = merged_df.drop(columns="_merge")
         """
         # Use for debugging if outer merge
         if len(merged_df) > max(len(df_l), len(df_r)):
@@ -375,7 +383,7 @@ class Project:
         if len(improper_cols) > 0:
             improper_cols = list(set([x[:-2] for x in improper_cols]))
             for col in improper_cols:
-                if merged_df[f"{col}_x"].equals(merged_df[f"{col}_x"]):
+                if merged_df[f"{col}_x"].equals(merged_df[f"{col}_y"]):
                     merged_df = merged_df.rename(columns={f"{col}_x":col}).drop(columns=[f"{col}_y"])
         # Add warning if duplicated columns couldn't be resolved
         improper_cols = [
