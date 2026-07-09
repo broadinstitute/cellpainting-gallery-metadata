@@ -2,15 +2,13 @@
 
 Project to create metadata that is harmonized across the [Cell Painting Gallery](https://github.com/broadinstitute/cellpainting-gallery) (CPG). Our goal is to specify a minimally sufficient metadata specification that supports a variety of use cases for the data in the CPG and can easily integrate with community-wide metadata specification efforts.
 
-This is version 1 of the harmonization specification. We welcome discussion and expect to further develop the specification as community standards evolve.
+This is version 0.1 of the harmonization specification. We welcome discussion and expect to further develop the specification as community standards evolve.
 
 ## Orientation
 
 [Harmonized Ontology](harmonized_ontology.json) is the fundamental specfication. It defines the set of columns and for each column specifies its type (e.g. string, integer, etc.), if it is allowed to be sparse, and if there defined ontology for which the column values must comply.
 
 Note that we currently specify our own per-column ontologies to a minimal list that we populate based on values specific to the CPG. We are able to do this because all of our data is from a single assay or close derivative. We will consider switching to community-defined ontologies in the future.
-
-[Ontology Description](supporting_metadata/ontology_description.csv) provides an explanatory description of the harmonized columns.
 
 ## Harmonization
 
