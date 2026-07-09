@@ -21,7 +21,7 @@ If they are **not** (e.g. you used multiple cell lines in your experiment), mark
     Currently allowed values are: A549, C2C12, HeLa, HepG2, HepaRG, HEK293T, Huh7, MCF-7, N2a, SH-SY5Y, U2OS, None
 `Cell_Line_Type` (Cell type):
     Currently allowed values are: iPSC, bone cancer, breast cancer, cervical cancer, liver cancer, lung cancer, primary human hepatocyte
-`Cell_Line_Modification` (Line modifications (clone selection, Cas9 overexpression, etc.)):
+`Cell_Line_Modification` (Line modifications (clone selection, Cas9 overexpression, etc.))):
     Currently allowed values are: subclone A, Cas9 polyclonal overexpression, None
 `Cell_Line_Organism` (Organism from which the cell line was derived):
     Currently allowed values are: Homo sapiens, Mus musculus, Rattus norvegicus
