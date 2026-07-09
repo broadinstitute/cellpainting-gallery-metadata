@@ -3,5 +3,15 @@ author: Broad Institute
 repository:
   url: https://github.com/broadinstitute/cellpainting-gallery-metadata
   branch: main
+  path_to_book: docs
+
+html:
+  baseurl: broadinstitute.github.io
+  use_repository_button: true
+  use_issues_button: true
+  use_edit_page_button: true
+  comments:
+    hypothesis: true
+
 execute:
   execute_notebooks: "off"
