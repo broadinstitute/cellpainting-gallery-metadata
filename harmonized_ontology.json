@@ -1,56 +1,64 @@
 {
-    "File Path" : {
+    "File Path": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": false
+        "Harmonize": false,
+        "allow_sparse": false,
+        "Description": "S3 Path for image file"
     },
     "File Name": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": false
+        "Harmonize": false,
+        "allow_sparse": false,
+        "Description": "Name of image file"
     },
-    "Source" : {
+    "Source": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": false
+        "Harmonize": false,
+        "allow_sparse": false,
+        "Description": "Data source"
     },
     "Batch": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": false
+        "Harmonize": false,
+        "allow_sparse": false,
+        "Description": "Data batch"
     },
     "Plate": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": false
-    },
-    "Well" : {
-        "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": false
-    },
-    "Site" : {
-        "Type": "int",
-        "Harmonize" : false,
-        "allow_sparse": false
-    },
-    "Plate_Size" : {
-        "Type": "int",
-        "Harmonize" : true,
+        "Harmonize": false,
         "allow_sparse": false,
-        "Values" : [
+        "Description": "Plate name"
+    },
+    "Well": {
+        "Type": "str",
+        "Harmonize": false,
+        "allow_sparse": false,
+        "Description": "Well name"
+    },
+    "Site": {
+        "Type": "int",
+        "Harmonize": false,
+        "allow_sparse": false,
+        "Description": "Site number"
+    },
+    "Plate_Size": {
+        "Type": "int",
+        "Harmonize": true,
+        "allow_sparse": false,
+        "Values": [
             6,
             24,
             96,
             384,
             1536
-        ]
+        ],
+        "Description": "Number of wells in multiwell plate"
     },
     "CP_Version": {
         "Type": "str",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": false,
-        "Values" : [
+        "Values": [
             "v1",
             "v2",
             "v2.5",
@@ -58,21 +66,25 @@
             "lipocyte painting",
             "neuro painting",
             "live cell painting",
-            "other"]
+            "other"
+        ],
+        "Description": "Version of the Cell Painting Assay"
     },
     "DOI_to_Cite": {
         "Type": "str",
         "allow_sparse": false,
-        "Harmonize" : false 
+        "Harmonize": false,
+        "Description": "DOI to cite when using data"
     },
     "Year_Imaged": {
         "Type": "int",
         "allow_sparse": true,
-        "Harmonize" : false 
+        "Harmonize": false,
+        "Description": "Year of image acquisition"
     },
     "Cell_Line_Name": {
         "Type": "str",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": false,
         "Values": [
             "A549",
@@ -87,11 +99,12 @@
             "SH-SY5Y",
             "U2OS",
             "None"
-        ] 
+        ],
+        "Description": "Name of the cell line, if named"
     },
     "Cell_Line_Type": {
         "Type": "str",
-        "Harmonize" : false,
+        "Harmonize": false,
         "allow_sparse": false,
         "Values": [
             "iPSC",
@@ -101,41 +114,49 @@
             "liver cancer",
             "lung cancer",
             "primary human hepatocyte"
-        ]
+        ],
+        "Description": "Cell type"
     },
     "Cell_Line_Modification": {
         "Type": "str",
-        "Harmonize" : false,
+        "Harmonize": false,
         "allow_sparse": true,
         "Values": [
             "subclone A",
             "Cas9 polyclonal overexpression",
             "None"
-        ]
+        ],
+        "Description": "Line modifications (clone selection, Cas9 overexpression, etc.)"
     },
     "Cell_Line_Organism": {
         "Type": "str",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": false,
         "Values": [
             "Homo sapiens",
             "Mus musculus",
             "Rattus norvegicus"
-        ]
+        ],
+        "Description": "Organism from which the cell line was derived"
     },
     "Label_Mechanism": {
         "Type": "str",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": false,
-        "Values" : ["Dye", "Antibody", "None"] 
+        "Values": [
+            "Dye",
+            "Antibody",
+            "None"
+        ],
+        "Description": "Mechanism of labeling reagent"
     },
     "Label_Molecule": {
         "Type": "str",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": false,
         "Values": [
             "Acidic Compartments",
-            "β-tubulin",
+            "\u03b2-tubulin",
             "DNA",
             "DNA, RNA",
             "f-Actin",
@@ -146,13 +167,14 @@
             "RNA",
             "None",
             "Unknown"
-        ]
+        ],
+        "Description": "Molecule targeted by the label"
     },
     "Label_Reagent": {
         "Type": "str",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": false,
-        "Values" : [
+        "Values": [
             "Acridine Orange",
             "ChromaLive",
             "ConcanavalinA (ConA)",
@@ -165,15 +187,16 @@
             "Tocris MitoBrilliant",
             "Wheat Germ Agglutinin (WGA)",
             "Wheat Germ Agglutinin (WGA), Phalloidin",
-            "anti–β-tubulin IgG",
+            "anti\u2013\u03b2-tubulin IgG",
             "None"
-        ]
+        ],
+        "Description": "Reagent used to label sample in image"
     },
     "Label_Fluorophore": {
         "Type": "str",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": true,
-        "Values" : [
+        "Values": [
             "14",
             "33342",
             "Alexa Fluor 488",
@@ -184,14 +207,15 @@
             "Deep Red",
             "Texas Red",
             "None"
-        ]
+        ],
+        "Description": "Fluorophore conjugated to reagent or dye variant"
     },
     "Label_Structure": {
         "Type": "str",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": false,
         "Values": [
-            "β-tubulin",
+            "\u03b2-tubulin",
             "Endoplasmic Reticulum",
             "f-Actin",
             "Golgi, Plasma Membrane",
@@ -204,57 +228,69 @@
             "Nucleus, Nucleolus, Cytoplasmic RNA",
             "None",
             "Unknown"
-        ]
+        ],
+        "Description": "Expected structure that is labeled in image"
     },
     "Treatment_Primary_Treatment": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": false
+        "Harmonize": false,
+        "allow_sparse": false,
+        "Description": "Perturbation applied to cells, common name"
     },
     "Treatment_Broad_Sample": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": true
+        "Harmonize": false,
+        "allow_sparse": true,
+        "Description": "Perturbation applied to cells, Broad Sample ID"
     },
     "Treatment_Concentration": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": true
+        "Harmonize": false,
+        "allow_sparse": true,
+        "Description": "Concentration if chemical perturbation"
     },
     "Treatment_InChIKey": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": true
+        "Harmonize": false,
+        "allow_sparse": true,
+        "Description": "Perturbation applied to cells, InChiKey representation"
     },
     "Treatment_Mechanism": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": true
+        "Harmonize": false,
+        "allow_sparse": true,
+        "Description": "Annotation about mechanism of treatment"
     },
     "Treatment_PubChem_CID": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": true
+        "Harmonize": false,
+        "allow_sparse": true,
+        "Description": "Perturbation applied to cells, PubChem Cid"
     },
     "Treatment_SMILES": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": true
+        "Harmonize": false,
+        "allow_sparse": true,
+        "Description": "Perturbation applied to cells, SMILES representation"
     },
     "Treatment_Solvent": {
         "Type": "str",
-        "Harmonize" : true,
-        "Values" : ["DMSO"],
-        "allow_sparse": true
+        "Harmonize": true,
+        "Values": [
+            "DMSO"
+        ],
+        "allow_sparse": true,
+        "Description": "Solvent if chemical perturbation"
     },
     "Treatment_Secondary_Treatment": {
         "Type": "str",
-        "Harmonize" : false,
-        "allow_sparse": true
+        "Harmonize": false,
+        "allow_sparse": true,
+        "Description": "Secondary treatment applied to cells, if present"
     },
     "Treatment_Category": {
         "Type": "str",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": true,
         "Values": [
             "ORF",
@@ -263,24 +299,26 @@
             "shRNA",
             "miRNA",
             "None"
-        ] 
+        ],
+        "Description": "Treatment is compound, ORF, or CRISPR"
     },
     "Treatment_Control_Class": {
         "Type": "str",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": true,
-        "Values" : [
+        "Values": [
             "Control",
             "Treatment",
             "NegCon",
             "PosCon"
-        ] 
+        ],
+        "Description": "Treatment is an experimental variable or a control"
     },
     "Microscope_Name": {
         "Type": "str",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": false,
-        "Values":[
+        "Values": [
             "Revvity Opera Phenix",
             "Revvity Operetta",
             "Molecular Devices ImageXpress 5000A",
@@ -288,89 +326,118 @@
             "Molecular Devices ImageXpress Micro XL",
             "Molecular Devices ImageXpress Micro XLS",
             "Agilent BioTek Cytation 5"
-        ]
+        ],
+        "Description": "Microscope manufacturer and type"
     },
     "Microscope_Binning": {
         "Type": "int",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": true,
-        "Values" : [1, 2, 3, 4]
+        "Values": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "Description": "Binning of the microscope"
     },
     "Microscope_Modality": {
         "Type": "str",
-        "Harmonize" : true,
+        "Harmonize": true,
         "allow_sparse": false,
-        "Values" : ["Widefield", "Confocal"] 
+        "Values": [
+            "Widefield",
+            "Confocal"
+        ],
+        "Description": "Microscope modality"
     },
     "Microscope_Objective_Magnification": {
         "Type": "int",
         "allow_sparse": false,
-        "Harmonize" : false 
+        "Harmonize": false,
+        "Description": "Magnification of the microscope objective"
     },
     "Microscope_Objective_NA": {
         "Type": "float",
         "allow_sparse": true,
-        "Harmonize" : false 
+        "Harmonize": false,
+        "Description": "Numerical aperture of the microscope objective"
     },
     "Microscope_Pixel_Size": {
         "Type": "float",
         "allow_sparse": true,
-        "Harmonize" : false 
+        "Harmonize": false,
+        "Description": "Size of a pixel in microns"
     },
     "Microscope_Excitation_Peak": {
         "Type": "int",
         "allow_sparse": true,
-        "Harmonize" : false 
+        "Harmonize": false,
+        "Description": "Excitation peak of the microscope channel imaged"
     },
     "Microscope_Excitation_Width": {
         "Type": "int",
         "allow_sparse": true,
-        "Harmonize" : false 
+        "Harmonize": false,
+        "Description": "Excitation width of the microscope channel imaged"
     },
     "Microscope_Emission_Peak": {
         "Type": "int",
         "allow_sparse": true,
-        "Harmonize" : false 
+        "Harmonize": false,
+        "Description": "Emission peak of the microscope channel imaged"
     },
     "Microscope_Emission_Width": {
         "Type": "int",
         "allow_sparse": true,
-        "Harmonize" : false 
+        "Harmonize": false,
+        "Description": "Emission width of the microscope channel imaged"
     },
     "Image_Bit_Depth": {
         "Type": "int",
         "allow_sparse": true,
-        "Harmonize" : true,
-        "Values":[8,12,16]
+        "Harmonize": true,
+        "Values": [
+            8,
+            12,
+            16
+        ],
+        "Description": "Bit depth of the image"
     },
     "Image_Position_Z": {
         "Type": "int",
         "allow_sparse": true,
-        "Harmonize" : false 
+        "Harmonize": false,
+        "Description": "Relative Z-plane of the image"
     },
     "Image_Size_X": {
         "Type": "int",
         "allow_sparse": true,
-        "Harmonize" : false 
+        "Harmonize": false,
+        "Description": "Image size in pixels, X dimension"
     },
     "Image_Size_Y": {
         "Type": "int",
         "allow_sparse": true,
-        "Harmonize" : false 
+        "Harmonize": false,
+        "Description": "Image size in pixels, Y dimension"
     },
     "Timepoint_Primary_Treatment": {
         "Type": "float",
-        "Harmonize" : false,
-        "allow_sparse": true
+        "Harmonize": false,
+        "allow_sparse": true,
+        "Description": "Time in hours since primary treatment"
     },
     "Timepoint_Secondary_Treatment": {
         "Type": "float",
-        "Harmonize" : false,
-        "allow_sparse": true
+        "Harmonize": false,
+        "allow_sparse": true,
+        "Description": "Time in hours since secondary treatment"
     },
     "Timepoint_Acquisition": {
         "Type": "float",
-        "Harmonize" : false,
-        "allow_sparse": true
+        "Harmonize": false,
+        "allow_sparse": true,
+        "Description": "For data with time dimension, time in hours since start of acquisition"
     }
 }
