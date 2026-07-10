@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'docs/**'
+      - 'inferable_relationships.json'
+      - 'scripts/generate_inferable_relationships.py'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
@@ -20,4 +22,5 @@ jobs:
         with:
           python-version: '3.x'
       - run: pip install mkdocs mkdocs-material
+      - run: python scripts/generate_inferable_relationships.py
       - run: mkdocs gh-deploy --force

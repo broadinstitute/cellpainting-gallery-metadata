@@ -3,5 +3,6 @@ docs_dir: docs
 nav:
   - Intro: index.md
   - Metadata Requirements: metadata_requirements.md
+  - Inferable Relationships: inferable_relationships.md
 theme:
   name: material
