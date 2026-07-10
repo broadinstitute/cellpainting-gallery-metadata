@@ -10,4 +10,4 @@ The harmonization process maps raw metadata columns to a shared controlled vocab
 
 ## Contents
 
-- **[Metadata Requirements](metadata_requirements)** — the fields contributors must provide when submitting a dataset, including allowed values for controlled-vocabulary columns.
+- **[Metadata Requirements](metadata_requirements.md)** — the fields contributors must provide when submitting a dataset, including allowed values for controlled-vocabulary columns.
