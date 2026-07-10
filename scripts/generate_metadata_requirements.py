@@ -23,7 +23,7 @@ for line in lines:
         if "Description" in entry:
             rest = field_match.group(2)
             # replace existing parenthetical description or append one
-            rest = re.sub(r'\s*\(.*?\)', '', rest)
+            rest = re.sub(r'\s*\(.*\)', '', rest)
             line = f"{field_match.group(1)} ({entry['Description']}){rest}\n"
 
     values_match = re.match(r'(\s*Currently allowed values are:)', line)
