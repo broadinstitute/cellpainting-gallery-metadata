@@ -1,0 +1,7 @@
+site_name: Cell Painting Gallery Metadata
+docs_dir: docs
+nav:
+  - Intro: intro.md
+  - Metadata Requirements: metadata_requirements.md
+theme:
+  name: material
