@@ -68,7 +68,7 @@
             "live cell painting",
             "other"
         ],
-        "Description": "Version of the Cell Painting Assay"
+        "Description": "Version of the Cell Painting Assay if using a published protocol"
     },
     "DOI_to_Cite": {
         "Type": "str",
@@ -107,10 +107,11 @@
         "Harmonize": false,
         "allow_sparse": false,
         "Values": [
-            "iPSC",
             "bone cancer",
             "breast cancer",
             "cervical cancer",
+            "iPSC",
+            "iPSC derived cardiomyocyte",
             "liver cancer",
             "lung cancer",
             "primary human hepatocyte"
@@ -122,11 +123,11 @@
         "Harmonize": false,
         "allow_sparse": true,
         "Values": [
-            "subclone A",
             "Cas9 polyclonal overexpression",
+            "subclone A",
             "None"
         ],
-        "Description": "Line modifications (clone selection, Cas9 overexpression, etc.)"
+        "Description": "Line modifications (clone selection, Cas9 overexpression, day of differentiation etc.)"
     },
     "Cell_Line_Organism": {
         "Type": "str",
@@ -156,7 +157,7 @@
         "allow_sparse": false,
         "Values": [
             "Acidic Compartments",
-            "\u03b2-tubulin",
+            "beta-tubulin",
             "DNA",
             "DNA, RNA",
             "f-Actin",
@@ -187,7 +188,7 @@
             "Tocris MitoBrilliant",
             "Wheat Germ Agglutinin (WGA)",
             "Wheat Germ Agglutinin (WGA), Phalloidin",
-            "anti\u2013\u03b2-tubulin IgG",
+            "anti-beta-tubulin IgG",
             "None"
         ],
         "Description": "Reagent used to label sample in image"
@@ -215,7 +216,7 @@
         "Harmonize": true,
         "allow_sparse": false,
         "Values": [
-            "\u03b2-tubulin",
+            "beta-tubulin",
             "Endoplasmic Reticulum",
             "f-Actin",
             "Golgi, Plasma Membrane",
@@ -300,7 +301,7 @@
             "miRNA",
             "None"
         ],
-        "Description": "Treatment is compound, ORF, or CRISPR"
+        "Description": "Type of treatment. e.g. compound, ORF, CRISPR, miRNA, etc."
     },
     "Treatment_Control_Class": {
         "Type": "str",
