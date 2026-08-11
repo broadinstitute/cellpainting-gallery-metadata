@@ -17,7 +17,7 @@ If they are **not** (e.g. you used multiple cell lines in your experiment), mark
 Currently allowed values are: 6, 24, 96, 384, 1536
 ```
 
-`CP_Version` (Version of the Cell Painting Assay):
+`CP_Version` (Version of the Cell Painting Assay if using a published protocol):
 
 ```text
 Currently allowed values are: v1, v2, v2.5, v3, lipocyte painting, neuro painting, live cell painting, other
@@ -25,7 +25,7 @@ Currently allowed values are: v1, v2, v2.5, v3, lipocyte painting, neuro paintin
 
 `DOI_to_Cite` (DOI to cite when using data):  
 `Year_Imaged` (Year of image acquisition):  
-`Cell_Line_Name` (Name of the cell line, if named): *Note that you can look up our standardized `Cell_Line_Type` and `Cell_Line_Organism` entries for all already-allowed values in [Inferable Relationships](inferable_relationships.md).*
+`Cell_Line_Name` (Name of the cell line, if named).*
 
 ```text
 Currently allowed values are: A549, C2C12, HeLa, HepG2, HepaRG, HEK293T, Huh7, MCF-7, N2a, SH-SY5Y, U2OS, None
@@ -34,13 +34,13 @@ Currently allowed values are: A549, C2C12, HeLa, HepG2, HepaRG, HEK293T, Huh7, M
 `Cell_Line_Type` (Cell type):
 
 ```text
-Currently allowed values are: iPSC, bone cancer, breast cancer, cervical cancer, liver cancer, lung cancer, primary human hepatocyte
+Currently allowed values are: bone cancer, breast cancer, cervical cancer, iPSC, iPSC derived cardiomyocyte, liver cancer, lung cancer, primary human hepatocyte
 ```
 
-`Cell_Line_Modification` (Line modifications (clone selection, Cas9 overexpression, etc.)):
+`Cell_Line_Modification` (Line modifications (clone selection, Cas9 overexpression, day of differentiation etc.)):
 
 ```text
-Currently allowed values are: subclone A, Cas9 polyclonal overexpression, None
+Currently allowed values are: Cas9 polyclonal overexpression, subclone A, None
 ```
 
 `Cell_Line_Organism` (Organism from which the cell line was derived):
@@ -111,19 +111,19 @@ Currently allowed values are: Dye, Antibody, None
 `Label_Molecule` (Molecule targeted by the label):
 
 ```text
-Currently allowed values are: Acidic Compartments, β-tubulin, DNA, DNA, RNA, f-Actin, f-Actin, N-acetyl-D-glucosamine, Glycoproteins, Mitochondria, N-acetyl-D-glucosamine, RNA, None, Unknown
+Currently allowed values are: Acidic Compartments, beta-tubulin, DNA, DNA, RNA, f-Actin, f-Actin, N-acetyl-D-glucosamine, Glycoproteins, Mitochondria, N-acetyl-D-glucosamine, RNA, None, Unknown
 ```
 
 `Label_Reagent` (Reagent used to label sample in image):
 
 ```text
-Currently allowed values are: Acridine Orange, ChromaLive, ConcanavalinA (ConA), DAPI, Hoechst, Lysotracker, Mitotracker, Phalloidin, SYTO, Tocris MitoBrilliant, Wheat Germ Agglutinin (WGA), Wheat Germ Agglutinin (WGA), Phalloidin, anti–β-tubulin IgG, None
+Currently allowed values are: Acridine Orange, ChromaLive, ConcanavalinA (ConA), DAPI, Hoechst, Lysotracker, Mitotracker, Phalloidin, SYTO, Tocris MitoBrilliant, Wheat Germ Agglutinin (WGA), Wheat Germ Agglutinin (WGA), Phalloidin, anti-beta-tubulin IgG, None
 ```
 
 `Label_Structure` (Expected structure that is labeled in image):
 
 ```text
-Currently allowed values are: β-tubulin, Endoplasmic Reticulum, f-Actin, Golgi, Plasma Membrane, Golgi, Plasma Membrane, f-Actin, Lysosomes, Lysosomes, Endosomes, Mitochondria, Nucleus, Nucleolus, Cytoplasmic RNA, Nucleus, Nucleolus, Cytoplasmic RNA, None, Unknown
+Currently allowed values are: beta-tubulin, Endoplasmic Reticulum, f-Actin, Golgi, Plasma Membrane, Golgi, Plasma Membrane, f-Actin, Lysosomes, Lysosomes, Endosomes, Mitochondria, Nucleus, Nucleolus, Cytoplasmic RNA, Nucleus, Nucleolus, Cytoplasmic RNA, None, Unknown
 ```
 
 `Microscope_Excitation_Peak` (Excitation peak of the microscope channel imaged):  
@@ -145,7 +145,7 @@ Not all experiments will have all of these metadata categories (particularly if 
 `Treatment_SMILES` (Perturbation applied to cells, SMILES representation)  
 `Treatment_Solvent` (Solvent if chemical perturbation)  
 `Treatment_Secondary_Treatment` (Secondary treatment applied to cells, if present)  
-`Treatment_Category` (Treatment is compound, ORF, or CRISPR):
+`Treatment_Category` (Type of treatment. e.g. compound, ORF, CRISPR, miRNA, etc.):
 
 ```text
 Currently allowed values are: ORF, Compound, CRISPR, shRNA, miRNA, None
