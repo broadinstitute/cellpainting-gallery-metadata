@@ -61,6 +61,17 @@
             "Label_Mechanism": "Dye"
         }
     },
+    "Label_Alternative_Names": {
+        "Mito": ["MitoTracker", "Mitochondria"],
+        "AGP": [],
+        "RNA": ["SYTO"],
+        "ER": ["ConA", "Concanavalin A","Glycoproteins"],
+        "DNA": ["Hoechst", "DAPI"],
+        "WGA": ["Wheat Germ Agglutinin"],
+        "Brightfield": ["BF", "Bright Field"],
+        "AO_Green": ["Acridine Orange Green"],
+        "AO_Red": ["Acridine Orange Red"]
+    },
     "Cell_Line_Name": {
         "A549": {
             "Cell_Line_Type": "lung cancer",
