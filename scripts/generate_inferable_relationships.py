@@ -17,6 +17,9 @@ lines = [
 ]
 
 for top_key, entries in data.items():
+    if top_key == "Label_Alternative_Names":
+        continue
+
     lines.append(f"## {top_key}")
     lines.append("")
 
