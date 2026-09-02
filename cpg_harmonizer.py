@@ -94,11 +94,13 @@ class Project:
             [
                 self.structure_dict["Columns"]["Well"],
                 self.structure_dict["Columns"]["Plate_Map"],
+                self.structure_dict["Columns"]["Batch"],
             ],
             self.platemap_df,
             [
                 self.structure_dict["Columns"]["Well"],
                 self.structure_dict["Columns"]["Plate_Map"],
+                self.structure_dict["Columns"]["Batch"],
             ],
         )
 
