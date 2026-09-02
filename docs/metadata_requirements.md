@@ -99,7 +99,7 @@ Examples of each of these labels is visible in our harmonized ontology.
 `Label_Fluorophore` (Fluorophore conjugated to reagent or dye variant):
 
 ```text
-Currently allowed values are: 14, 33342, Alexa Fluor 488, Alexa Fluor 555, Alexa Fluor 562/624, Alexa Fluor 568, Alexa Fluor 594, Deep Red, Texas Red, None
+Currently allowed values are: 14, 33342, Acridine Orange, Alexa Fluor 488, Alexa Fluor 555, Alexa Fluor 562/624, Alexa Fluor 568, Alexa Fluor 594, Deep Red, Texas Red, None
 ```
 
 `Label_Mechanism` (Mechanism of labeling reagent):
