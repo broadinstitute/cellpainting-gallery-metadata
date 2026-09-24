@@ -28,7 +28,7 @@ Currently allowed values are: v1, v2, v2.5, v3, lipocyte painting, neuro paintin
 `Cell_Line_Name` (Name of the cell line, if named).*
 
 ```text
-Currently allowed values are: A549, C2C12, HeLa, HepG2, HepaRG, HEK293T, Huh7, MCF-7, N2a, SH-SY5Y, U2OS, None
+Currently allowed values are: A549, BioIVT LIVERPOOL, C2C12, HeLa, HepG2, HepaRG, HEK293T, Huh7, MCF-7, N2a, SH-SY5Y, U2OS, None
 ```
 
 `Cell_Line_Type` (Cell type):
@@ -99,7 +99,7 @@ Examples of each of these labels is visible in our harmonized ontology.
 `Label_Fluorophore` (Fluorophore conjugated to reagent or dye variant):
 
 ```text
-Currently allowed values are: 14, 33342, Acridine Orange, Alexa Fluor 488, Alexa Fluor 555, Alexa Fluor 562/624, Alexa Fluor 568, Alexa Fluor 594, Deep Red, Texas Red, None
+Currently allowed values are: 14, 33342, Acridine Orange, Alexa Fluor 488, Alexa Fluor 555, Alexa Fluor 562/624, Alexa Fluor 568, Alexa Fluor 594, Deep Red, PhenoVue Fluor 488, PhenoVue Fluor 512, PhenoVue Fluor 555, PhenoVue Fluor 568, PhenoVue Fluor 641, Texas Red, None
 ```
 
 `Label_Mechanism` (Mechanism of labeling reagent):
