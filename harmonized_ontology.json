@@ -88,6 +88,7 @@
         "allow_sparse": false,
         "Values": [
             "A549",
+            "BioIVT LIVERPOOL",
             "C2C12",
             "HeLa",
             "HepG2",
@@ -207,6 +208,11 @@
             "Alexa Fluor 568",
             "Alexa Fluor 594",
             "Deep Red",
+            "PhenoVue Fluor 488",
+            "PhenoVue Fluor 512",
+            "PhenoVue Fluor 555",
+            "PhenoVue Fluor 568",
+            "PhenoVue Fluor 641",
             "Texas Red",
             "None"
         ],
