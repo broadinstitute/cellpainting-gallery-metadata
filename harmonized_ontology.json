@@ -141,6 +141,12 @@
         ],
         "Description": "Organism from which the cell line was derived"
     },
+    "Cell_Seeding_Density": {
+        "Type": "int",
+        "Harmonize": true,
+        "allow_sparse": true,
+        "Description": "Density of cells seeded in the well"
+    },
     "Label_Mechanism": {
         "Type": "str",
         "Harmonize": true,
